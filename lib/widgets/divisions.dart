@@ -17,15 +17,15 @@ class Divisions extends StatelessWidget {
     return Stack(
       children: [
         Positioned(
-          right: context.isPortrait ? -4 : 40,
+          left: 110,
           child: Image.asset(
             '${kImagesPath}stars.png',
             color: Colors.blue,
           ),
         ),
         Container(
-          padding: const EdgeInsets.all(20),
-          width: 145,
+          padding: const EdgeInsets.all(15),
+          width: 152,
           height: 145,
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
@@ -40,7 +40,7 @@ class Divisions extends StatelessWidget {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10),
               child: Column(
                 children: [
                   ImageIcon(

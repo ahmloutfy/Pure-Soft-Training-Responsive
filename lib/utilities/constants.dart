@@ -16,4 +16,7 @@ const landscapePadding = EdgeInsets.fromLTRB(120, 25, 90, 20);
 extension MediaQueryValues on BuildContext {
   bool get isPortrait =>
       MediaQuery.of(this).orientation == Orientation.portrait;
+  bool get isLandscape =>
+      MediaQuery.of(this).orientation == Orientation.landscape;
+  double get screenWidth => MediaQuery.of(this).size.width;
 }

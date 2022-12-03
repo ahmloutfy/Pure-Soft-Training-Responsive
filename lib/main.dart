@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:pure_soft_training_responsive/screens/add_divison.dart';
 import 'package:pure_soft_training_responsive/screens/home_page.dart';
 import 'package:pure_soft_training_responsive/widgets/custom_appbar.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Pure Soft Training (Responsive)',
+      home: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -12,12 +19,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Pure Soft Training (Responsive)',
-      home: Scaffold(
-        appBar: CustomAppBar(),
-        body: ResponsiveTask(),
+    return Scaffold(
+      appBar: const CustomAppBar(),
+      body: const ResponsiveTask(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddDivision(),
+            ),
+          );
+        },
+        backgroundColor: Colors.blue,
+        child: const Icon(Icons.add),
       ),
     );
   }
