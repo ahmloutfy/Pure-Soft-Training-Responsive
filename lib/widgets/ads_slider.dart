@@ -34,7 +34,7 @@ class AdsSlider extends StatelessWidget {
     ];
 
     return Container(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       height: 170,
       width: double.infinity,
       child: ListView.separated(

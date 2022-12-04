@@ -8,7 +8,7 @@ void main() {
     const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pure Soft Training (Responsive)',
-      home: MyApp(),
+      home: AddDivision(),
     ),
   );
 }
