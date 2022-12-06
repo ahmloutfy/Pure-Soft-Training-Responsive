@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../utilities/constants.dart';
 import '../widgets/ads_slider.dart';
+import '../widgets/custom_appbar.dart';
 import '../widgets/divisions.dart';
+import 'add_new_divison.dart';
 
 class ResponsiveTask extends StatelessWidget {
   const ResponsiveTask({Key? key}) : super(key: key);
@@ -10,6 +12,7 @@ class ResponsiveTask extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CustomAppBar(),
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
@@ -64,6 +67,18 @@ class ResponsiveTask extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const AddDivision(),
+            ),
+          );
+        },
+        backgroundColor: Colors.blue,
+        child: const Icon(Icons.add),
       ),
     );
   }

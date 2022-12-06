@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 const kDefaultFontStyle = TextStyle(
-  fontFamily: 'Cairo',
   fontWeight: FontWeight.bold,
 );
 
@@ -19,4 +18,14 @@ extension MediaQueryValues on BuildContext {
   bool get isLandscape =>
       MediaQuery.of(this).orientation == Orientation.landscape;
   double get screenWidth => MediaQuery.of(this).size.width;
+}
+
+OutlineInputBorder customOutlineInputBorder({required Color color}) {
+  return OutlineInputBorder(
+    borderRadius: BorderRadius.circular(20),
+    borderSide: BorderSide(
+      width: 1.5,
+      color: color,
+    ),
+  );
 }
