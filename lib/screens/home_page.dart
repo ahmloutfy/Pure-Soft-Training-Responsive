@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../utilities/constants.dart';
 import '../widgets/ads_slider.dart';
+import '../widgets/background_image.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/divisions.dart';
 import 'add_new_divison.dart';
@@ -14,14 +15,7 @@ class ResponsiveTask extends StatelessWidget {
     return Scaffold(
       appBar: const CustomAppBar(),
       body: SingleChildScrollView(
-        child: Container(
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('${kImagesPath}wallpaper.jpg'),
-              fit: BoxFit.fill,
-            ),
-          ),
+        child: BackgroundImage(
           child: Column(
             children: [
               const AdsSlider(),
@@ -68,7 +62,7 @@ class ResponsiveTask extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           Navigator.push(
             context,
@@ -78,7 +72,7 @@ class ResponsiveTask extends StatelessWidget {
           );
         },
         backgroundColor: Colors.blue,
-        child: const Icon(Icons.add),
+        label: const Text('Add New Division'),
       ),
     );
   }

@@ -14,13 +14,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Locale? myLocale;
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: myLocale?.languageCode == 'en' ? null : 'Cairo',
+    return GestureDetector(
+      onTap: () {
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          fontFamily: myLocale?.languageCode == 'en' ? null : 'Cairo',
+        ),
+        title: 'Pure Soft Training (Responsive)',
+        home: const AddDivision(),
       ),
-      title: 'Pure Soft Training (Responsive)',
-      home: const AddDivision(),
     );
   }
 }
