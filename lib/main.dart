@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pure_soft_training_responsive/screens/add_new_divison.dart';
+import 'package:pure_soft_training_responsive/utilities/constants.dart';
 
 void main() {
   runApp(
@@ -13,7 +14,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    Locale? myLocale;
     return GestureDetector(
       onTap: () {
         FocusManager.instance.primaryFocus?.unfocus();
@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          fontFamily: myLocale?.languageCode == 'en' ? null : 'Cairo',
+          fontFamily:
+              LocaleFont.myLocale?.languageCode == 'en' ? null : 'Cairo',
         ),
         title: 'Pure Soft Training (Responsive)',
         home: const AddDivision(),
@@ -30,4 +31,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Github Sync : 10/12/2022 (0)
+// Github Sync : 13/12/2022 (0)

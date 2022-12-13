@@ -33,3 +33,7 @@ OutlineInputBorder customOutlineInputBorder({required Color color}) {
 class UniversalKey {
   static final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 }
+
+class LocaleFont {
+  static Locale? myLocale;
+}

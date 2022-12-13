@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 
 import '../utilities/constants.dart';
+import '../widgets/alert_for_user.dart';
 import '../widgets/background_image.dart';
 import '../widgets/division_text_field.dart';
 
+class EditingControllers {
+  static TextEditingController? enTitleInput = TextEditingController(),
+      enDescriptionInput = TextEditingController(),
+      arTitleInput = TextEditingController(),
+      arDescriptionInput = TextEditingController();
+}
+
 class AddDivision extends StatelessWidget {
-  const AddDivision({Key? key}) : super(key: key);
+  const AddDivision({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,50 +29,92 @@ class AddDivision extends StatelessWidget {
               key: UniversalKey.formKey,
               child: Column(
                 children: [
-                  const DivisionTextField(
-                    labelString: Text('Division Title'),
+                  DivisionTextField(
+                    labelString: const Text('Division Title'),
                     hintString: 'Enter Division Title!',
                     linesCount: 1,
+                    myController: EditingControllers.enTitleInput,
+                    myInputAction: TextInputAction.next,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  (const DivisionTextField(
-                    labelString: Text('Division Details'),
+                  (DivisionTextField(
+                    labelString: const Text('Division Details'),
                     hintString: 'Enter Division Details!',
                     linesCount: 5,
+                    myController: EditingControllers.enDescriptionInput,
+                    myInputAction: TextInputAction.next,
                   )),
                   const SizedBox(
                     height: 50,
                   ),
-                  const DivisionTextField(
-                    labelString: Text('عنوان القسم'),
+                  DivisionTextField(
+                    labelString: const Text('عنوان القسم'),
                     hintString: 'أدخل عنوان القسم!',
                     linesCount: 1,
+                    myController: EditingControllers.arTitleInput,
+                    myInputAction: TextInputAction.next,
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  (const DivisionTextField(
-                    labelString: Text('تفاصيل القسم'),
+                  (DivisionTextField(
+                    labelString: const Text('تفاصيل القسم'),
                     hintString: 'أدخل تفاصيل القسم!',
                     linesCount: 5,
+                    myController: EditingControllers.arDescriptionInput,
+                    myInputAction: TextInputAction.done,
                   )),
                   const SizedBox(
                     height: 20,
                   ),
                   TextButton(
-                    onPressed: null,
+                    onPressed: () {
+                      if (EditingControllers.enTitleInput!.text.isEmpty) {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) =>
+                              const UserAlert(myText: 'English Title'),
+                        );
+                      }
+
+                      if (EditingControllers.enDescriptionInput!.text.isEmpty) {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) =>
+                              const UserAlert(myText: 'English Description'),
+                        );
+                      }
+
+                      if (EditingControllers.arTitleInput!.text.isEmpty) {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) =>
+                              const UserAlert(myText: 'عنوان عربي'),
+                        );
+                      }
+
+                      if (EditingControllers.arDescriptionInput!.text.isEmpty) {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) =>
+                              const UserAlert(myText: 'وصف عربي'),
+                        );
+                      }
+
+                      {}
+                    },
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.blue,
                     ),
                     child: const Text(
-                      'Add  أضف',
+                      'Add',
                       style: TextStyle(
                         color: Colors.white,
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
             ),
