@@ -37,3 +37,31 @@ class UniversalKey {
 class LocaleFont {
   static Locale? myLocale;
 }
+
+extension LanguagesValidators on String {
+  static bool arabicValidator() {
+    final arabicRegex = RegExp(r'/^[ء-ي0-9]*$');
+    return arabicRegex.hasMatch('');
+  }
+
+  static bool englishValidator() {
+    final englishRegex = RegExp(r'/^[A-Za-z0-9 ]*$');
+    return englishRegex.hasMatch('');
+  }
+}
+
+class EditingControllers {
+  static TextEditingController? enTitleInput = TextEditingController(),
+      enDescriptionInput = TextEditingController(),
+      arTitleInput = TextEditingController(),
+      arDescriptionInput = TextEditingController();
+}
+
+TextButton okTextButton(context) {
+  return TextButton(
+    child: const Text("OK"),
+    onPressed: () {
+      Navigator.of(context).pop();
+    },
+  );
+}

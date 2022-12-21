@@ -9,19 +9,22 @@ class UserAlert extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: const Text('Warning!'),
-      content: LocaleFont.myLocale?.languageCode == 'en'
-          ? Text('Please insert $myText')
-          : Text(' من فضلك أدخل $myText'),
-      actions: [
-        TextButton(
-          child: const Text("OK"),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-      ],
-    );
+    if (LanguagesValidators.arabicValidator()) {
+      return AlertDialog(
+        title: const Text('تحذير !'),
+        content: Text('$myText من فضلك أدخل '),
+        actions: [
+          okTextButton(context),
+        ],
+      );
+    } else {
+      return AlertDialog(
+        title: const Text('Warning !'),
+        content: Text('Please insert $myText'),
+        actions: [
+          okTextButton(context),
+        ],
+      );
+    }
   }
 }

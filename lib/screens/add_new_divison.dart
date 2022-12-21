@@ -5,13 +5,6 @@ import '../widgets/alert_for_user.dart';
 import '../widgets/background_image.dart';
 import '../widgets/division_text_field.dart';
 
-class EditingControllers {
-  static TextEditingController? enTitleInput = TextEditingController(),
-      enDescriptionInput = TextEditingController(),
-      arTitleInput = TextEditingController(),
-      arDescriptionInput = TextEditingController();
-}
-
 class AddDivision extends StatelessWidget {
   const AddDivision({super.key});
 
@@ -71,7 +64,8 @@ class AddDivision extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      if (EditingControllers.enTitleInput!.text.isEmpty) {
+                      if (EditingControllers.enTitleInput!.text.isEmpty &&
+                          !LanguagesValidators.englishValidator()) {
                         showDialog(
                           context: context,
                           builder: (BuildContext context) =>
@@ -79,7 +73,8 @@ class AddDivision extends StatelessWidget {
                         );
                       }
 
-                      if (EditingControllers.enDescriptionInput!.text.isEmpty) {
+                      if (EditingControllers.enDescriptionInput!.text.isEmpty &&
+                          !LanguagesValidators.englishValidator()) {
                         showDialog(
                           context: context,
                           builder: (BuildContext context) =>
@@ -87,7 +82,8 @@ class AddDivision extends StatelessWidget {
                         );
                       }
 
-                      if (EditingControllers.arTitleInput!.text.isEmpty) {
+                      if (EditingControllers.arTitleInput!.text.isEmpty &&
+                          !LanguagesValidators.arabicValidator()) {
                         showDialog(
                           context: context,
                           builder: (BuildContext context) =>
@@ -95,7 +91,8 @@ class AddDivision extends StatelessWidget {
                         );
                       }
 
-                      if (EditingControllers.arDescriptionInput!.text.isEmpty) {
+                      if (EditingControllers.arDescriptionInput!.text.isEmpty &&
+                          !LanguagesValidators.arabicValidator()) {
                         showDialog(
                           context: context,
                           builder: (BuildContext context) =>
