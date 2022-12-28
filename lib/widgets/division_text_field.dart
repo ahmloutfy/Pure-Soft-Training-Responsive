@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../utilities/constants.dart';
 
@@ -19,14 +20,15 @@ class DivisionTextField extends StatelessWidget {
     this.labelString,
     this.color,
     this.text,
-    this.validator,
     required this.myController,
     this.myInputAction,
+    this.validator,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
       textInputAction: myInputAction,
       controller: myController,
       keyboardType: TextInputType.text,

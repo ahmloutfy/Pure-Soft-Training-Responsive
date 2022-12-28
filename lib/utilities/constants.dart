@@ -38,16 +38,9 @@ class LocaleFont {
   static Locale? myLocale;
 }
 
-extension LanguagesValidators on String {
-  static bool arabicValidator() {
-    final arabicRegex = RegExp(r'/^[ء-ي0-9]*$');
-    return arabicRegex.hasMatch('');
-  }
-
-  static bool englishValidator() {
-    final englishRegex = RegExp(r'/^[A-Za-z0-9 ]*$');
-    return englishRegex.hasMatch('');
-  }
+class LanguagesValidators {
+  static RegExp arabicValidator = RegExp(r'^[ء-ي0-9]*$');
+  static RegExp englishValidator = RegExp(r'^[A-Za-z0-9 ]*$');
 }
 
 class EditingControllers {
